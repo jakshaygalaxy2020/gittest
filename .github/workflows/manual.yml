@@ -2,7 +2,7 @@ name: learn-github-actions
 on: [push]
 jobs:
   check-bats-version:
-    runs-on: self-hosted 
+    runs-on: windows-latest
     steps:
       - run: sudo apt-get update -y
       # Install git ftp and make it executable
