@@ -2,7 +2,7 @@ name: learn-github-actions
 on: [push]
 jobs:
   check-bats-version:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - run: sudo apt-get update -y
       # Install git ftp and make it executable
@@ -14,4 +14,4 @@ jobs:
       - run: git config --global user.email "akshay.jain@galaxyweblinks.in"
       - run: git config --global user.name "jakshaygalaxy2020"
       # Use git-ftp to copy all the files to the server, while keeping the connection
-      - run: git ftp push --user upload --passwd "Galaxy@123" "sftp://13.56.209.238:22/"
+      - run: git ftp push --user upload --passwd "Galaxy@123" "sftp://54.196.210.220:22/home/upload/"
