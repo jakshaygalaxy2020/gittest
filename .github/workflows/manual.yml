@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: uname -a && cat /etc/os-release
+      - run: sudo apt update && sudo apt upgrade && sudo apt install curl
       # Install git ftp and make it executable
       - run: mkdir ~/bin && curl https://raw.githubusercontent.com/git-ftp/git-ftp/master/git-ftp > ~/bin/git-ftp
       - run: chmod +x ~/bin/git-ftp
