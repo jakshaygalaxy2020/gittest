@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: sudo -i && sudo apt-get update -y && apt remove curl && apt purge curl && apt-get install -y libssl-dev autoconf libtool make wget && cd /usr/local/src &&
+      - run: apt-get update -y && apt remove curl && apt purge curl && apt-get install -y libssl-dev autoconf libtool make wget && cd /usr/local/src &&
              rm -rf curl* && wget https://curl.haxx.se/download/curl-7.70.0.zip && unzip curl-7.70.0.zip && cd curl-7.70.0 && ./buildconf && ./configure --with-ssl && make && make install && mv /usr/bin/curl /usr/bin/curl.bak && cp /usr/local/bin/curl /usr/bin/curl && curl -V 
       - run: curl -V
       # Install git ftp and make it executable
