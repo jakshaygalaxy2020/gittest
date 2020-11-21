@@ -5,9 +5,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - run: curl -V  
-      #- run: sudo apt update && sudo apt upgrade && sudo apt install curl && curl -V
-      # Install git ftp and make it executable
+      - run: apt-get update -y && test -d ~/.ssh || mkdir ~/.ssh && chmod 700 ~/.ssh && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config && chmod 600 ~/.ssh/config
       - run: mkdir ~/bin && curl https://raw.githubusercontent.com/git-ftp/git-ftp/master/git-ftp > ~/bin/git-ftp
       - run: chmod +x ~/bin/git-ftp
       - run: git clone https://github.com/jakshaygalaxy2020/gittest2020.git 
