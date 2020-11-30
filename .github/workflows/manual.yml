@@ -1,7 +1,8 @@
 name: learn-github-actions
-on: workflow_dispatch
-  branches:
-  - development
+on:
+  workflow_dispatch: 
+    branches:
+    - development
 jobs:
   check-bats-version:
     runs-on: ubuntu-20.04
