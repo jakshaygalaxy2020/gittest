@@ -1,5 +1,5 @@
 name: learn-github-actions
-on: [push]
+on: workflow_dispatch
 jobs:
   check-bats-version:
     runs-on: ubuntu-20.04
@@ -8,10 +8,9 @@ jobs:
       - run: apt-get update -y && test -d ~/.ssh || mkdir ~/.ssh && chmod 700 ~/.ssh && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config && chmod 600 ~/.ssh/config
       - run: mkdir ~/bin && curl https://raw.githubusercontent.com/git-ftp/git-ftp/master/git-ftp > ~/bin/git-ftp
       - run: chmod +x ~/bin/git-ftp
-      - run: git clone https://github.com/jakshaygalaxy2020/gittest2020.git 
-      - run: cd gittest2020 && pwd && ls -la .git/ && git status && git fetch && git init
-
       - run: git config --global user.email "akshay.jain@galaxyweblinks.in"
       - run: git config --global user.name "jakshaygalaxy2020"
       # Use git-ftp to copy all the files to the server, while keeping the connection
-      - run: git ftp push -vv --user upload --passwd "Galaxy@123" "sftp://54.196.210.220:22/home/upload/" -f
+      - run: git ftp init --user upload --passwd "Galaxy@123" "sftp://54.161.70.224:22/home/upload/" -f
+    env:
+          DEFAULT_BRANCH: main
