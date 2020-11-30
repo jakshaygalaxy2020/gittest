@@ -13,4 +13,4 @@ jobs:
       # Use git-ftp to copy all the files to the server, while keeping the connection
       - run: git ftp init --user upload --passwd "Galaxy@123" "sftp://54.161.70.224:22/home/upload/" -f
     env:
-          DEFAULT_BRANCH: main
+          DEFAULT_BRANCH: development
