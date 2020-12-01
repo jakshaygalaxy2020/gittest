@@ -15,4 +15,10 @@ jobs:
       - run: git config --global user.email "akshay.jain@galaxyweblinks.in"
       - run: git config --global user.name "jakshaygalaxy2020"
       # Use git-ftp to copy all the files to the server, while keeping the connection
-      - run: git ftp push --user:${{ secrets.UPLOAD }} --passwd:${{ secrets.PASS }} "sftp://54.161.70.224:22/home/upload/" -f
+      - run: echo ${{ secrets.USER }} && echo ${{ secrets.PASS }}
+      - shell: bash
+        env:
+          SUPER_SECRET: ${{ secrets.SuperSecret }} ${{ secrets.USER }} ${{ secrets.PASS }} 
+      - run: echo  "$SUPER_SECRET"
+      - run: git ftp push --user ${{ secrets.USER }} --passwd  "sftp://54.161.70.224:22/home/upload/" -f
+ 
