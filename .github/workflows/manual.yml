@@ -19,6 +19,6 @@ jobs:
 #      - shell: bash
 #        env:
 #          SUPER_SECRET: ${{ secrets.SuperSecret }} ${{ secrets.USER }} ${{ secrets.PASS }} 
-#     - run: echo  ${{ secrets.PASS }}
+      - run: echo  ${{ secrets.PASS }}
       - run: git ftp push --user ${{ secrets.USER }} --passwd ${{ secrets.PASS }} "sftp://54.161.70.224:22/home/upload/" -f
  
