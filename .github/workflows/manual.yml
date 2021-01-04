@@ -14,6 +14,5 @@ jobs:
       - run: chmod +x ~/bin/git-ftp
       - run: git config --global user.email "akshay.jain@galaxyweblinks.in"
       - run: git config --global user.name "jakshaygalaxy2020"
-      - run: git ftp push --user ${{ secrets.USER }} --passwd ${{ secrets.PASS }} "sftp://34.123.148.2:22/home/upload/" -f
-    
- 
+      # Use git-ftp to copy all the files to the server, while keeping the connection
+      - run: git ftp push --user upload --passwd "Galaxy@123" "sftp://34.123.148.2:22/home/upload/" -f
